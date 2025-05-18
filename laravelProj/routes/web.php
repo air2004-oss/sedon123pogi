@@ -25,8 +25,20 @@ Route::middleware([AuthCheck::class])->group(function () {
     Route::get('/student/update/{id}', [StudentsController::class, 'updateView'])->name('std.updateView');
     Route::post('/update', [StudentsController::class, 'updateME'])->name('std.studentUpdate');
     // DELETE
-    Route::get('/delete', [StudentsController::class, 'deleteME'])->name('std.studentDelete');
+    Route::get('/delete/{id}', [StudentsController::class, 'deleteME'])->name('std.studentDelete');
+    
+    
+    
+    // Search
+   // Route::get('/search', [StudentsController::class, 'search'])->name('std.search');
+    // Filter       
+   // Route::get('/filter', [StudentsController::class, 'filter'])->name('std.filter');
+    // Sort
+   // Route::get('/sort', [StudentsController::class, 'sort'])->name('std.sort');
+    // Pagination       
+   // Route::get('/pagination', [StudentsController::class, 'pagination'])->name('std.pagination');
 
     // Logout
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
+

@@ -3,7 +3,7 @@
 
 
 
-<a href="{{ route('auth.logout') }}" class="btn btn-danger" style="float: right;">Logout</a>
+<a href="{{ route('auth.logout') }}" class="btn btn-danger" style="float: right;margin-top:20px; margin-right: 20px;">Logout</a>
 
 
 <div class="centered-div">
@@ -11,12 +11,29 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 style="float: left;"><strong>Student List</strong></h4>
-                        <!-- Action btn for modal -->
+                    <div class="card-header" style="background-color: black;">
+                        <h4 style="float: left; color: aliceblue;"><strong>Student List</strong></h4>
+                        <!-- Action btn for modal 
+                       
                         <button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#addNewModal">
                             Add New Students
+                        </button>   -->
+
+                        <div class="input-group">
+                <input type="text" class="form-control me-3" style="max-width: 300px;" placeholder="Search Student's name" name="search">
+                <button class="btn btn-primary" type="submit">Search</button>
+                        <div>
+                <button type="button" class="btn btn-primary" style="float: right; margin-left: 7px;" data-bs-toggle="modal" data-bs-target="#addNewModal">
+                            Add New Students
                         </button>
+                        </div>
+                
+                
+               
+
+                        </div>
+
+
                     </div>
 
                     @if(Session("success"))
@@ -25,7 +42,7 @@
                     </span>
                     @endif
 
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: black;">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

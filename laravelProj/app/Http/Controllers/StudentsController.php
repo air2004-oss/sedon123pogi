@@ -27,13 +27,11 @@ class StudentsController extends Controller
         ]);
 
         $add_new = new Students;
-        $add_new->id = $request->id;
+        // Removed manual ID assignment to let DB handle auto-increment
         $add_new->name = $request->name;
         $add_new->age = $request->age;
         $add_new->gender = $request->gender;
         $add_new->save();
-
-
 
         return back()->with('success', 'Student added successfully');
     }

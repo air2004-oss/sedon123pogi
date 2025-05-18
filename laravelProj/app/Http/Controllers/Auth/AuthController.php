@@ -28,7 +28,7 @@ class AuthController extends Controller
         $loginAuth = User::where('email', '=', $request->email)
             ->first();
 
-        if ($loginAuth) {
+        if ($loginAuth && \Illuminate\Support\Facades\Hash::check($request->password, $loginAuth->password)) {
             Session::put('loginId', $loginAuth->id);
             return redirect()->route('std.myView')->with('success', 'Login successfully');
         } else {
@@ -49,7 +49,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
         ]);
 
